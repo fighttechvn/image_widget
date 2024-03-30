@@ -12,6 +12,9 @@ Fighttech Flutter Image Widget
   ImageWidget.packageDefault = null;
 ```
 
+![Alt text](screenshot.png)
+
+
 ## Easy render image widget
 ```
 ImageWidget(
