@@ -1,3 +1,6 @@
+# 1.2.2
+* Add border radius for `Skeleton` widget
+
 # 1.2.0
 + Upgrade library `lottie: ^3.1.0`
 

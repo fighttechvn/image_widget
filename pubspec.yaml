@@ -1,6 +1,6 @@
 name: imagewidget
 description: Fighttech Flutter Image Widget
-version: 1.2.1
+version: 1.2.2
 homepage: https://github.com/fighttech-vn/image_widget
 screenshots:
   - description: "Easy to render image support multi type."
@@ -21,4 +21,4 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.1
+  flutter_lints: ^5.0.0

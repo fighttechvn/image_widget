@@ -30,7 +30,7 @@ class ImageWidget extends StatefulWidget {
 
   const ImageWidget(
     this.source, {
-    Key? key,
+    super.key,
     this.fit = BoxFit.cover,
     this.width,
     this.height,
@@ -43,11 +43,11 @@ class ImageWidget extends StatefulWidget {
     this.aspectRatio = 2.0,
     this.useFadeInAnimation = true,
     this.errorWidget,
-  }) : super(key: key);
+  });
 
   const ImageWidget.avatar(
     this.source, {
-    Key? key,
+    super.key,
     this.fit = BoxFit.cover,
     this.width = 40,
     this.height = 40,
@@ -60,7 +60,7 @@ class ImageWidget extends StatefulWidget {
     this.aspectRatio = 2.0,
     this.useFadeInAnimation = true,
     this.errorWidget,
-  }) : super(key: key);
+  });
 
   Widget copyWith({Color? color, double? width, double? height}) {
     return ImageWidget(
