@@ -8,10 +8,10 @@ class SvgImage extends StatelessWidget {
 
   const SvgImage(
     this.string, {
-    Key? key,
+    super.key,
     this.width,
     this.height,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

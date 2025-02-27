@@ -13,7 +13,7 @@ class ImageListsWidget extends StatefulWidget {
   final bool shrinkWrap;
 
   const ImageListsWidget({
-    Key? key,
+    super.key,
     this.header,
     this.aspectRatio = 1,
     required this.images,
@@ -21,7 +21,7 @@ class ImageListsWidget extends StatefulWidget {
     this.videoBuilder,
     this.isShowTitle = false,
     this.shrinkWrap = true,
-  }) : super(key: key);
+  });
 
   @override
   State<ImageListsWidget> createState() => _ImageListsWidgetState();
@@ -127,7 +127,7 @@ class SlidePage extends StatefulWidget {
   final bool isShowTitle;
 
   const SlidePage({
-    Key? key,
+    super.key,
     required this.images,
     this.header,
     required this.index,
@@ -135,7 +135,7 @@ class SlidePage extends StatefulWidget {
     this.videoBuilder,
     required this.isShowTitle,
     required this.url,
-  }) : super(key: key);
+  });
 
   @override
   State<SlidePage> createState() => _SlidePageState();
@@ -248,7 +248,7 @@ class _SlidePageState extends State<SlidePage> {
                           ),
                           Container(
                             color: (widget.themeColor ?? Colors.black)
-                                .withOpacity(0.08),
+                                .withValues(alpha: 0.08),
                             margin: const EdgeInsets.only(left: 5, right: 16),
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 12, vertical: 2),

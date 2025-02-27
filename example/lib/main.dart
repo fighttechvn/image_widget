@@ -12,7 +12,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
   final String title;
 
   @override
@@ -82,7 +82,15 @@ class _MyHomePageState extends State<MyHomePage> {
             'https://images.unsplash.com/photo-1661041524618-220a2a2b8b7.png',
             width: 100,
             height: 50,
+          
           ),
+          Container(
+            margin: const EdgeInsets.all(10),
+            height:  44 ,
+            width: 220,
+            child: Skeleton(
+              borderRadius: BorderRadius.circular(10),
+            ),),
           CupertinoTextField(
             clearButtonMode: OverlayVisibilityMode.editing,
             controller: linkCtr,

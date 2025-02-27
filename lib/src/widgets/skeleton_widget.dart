@@ -3,7 +3,10 @@
 import 'package:flutter/material.dart';
 
 class Skeleton extends StatefulWidget {
-  const Skeleton({Key? key}) : super(key: key);
+  final BorderRadiusGeometry? borderRadius;
+
+  const Skeleton({super.key, this.borderRadius,});
+
 
   @override
   State<Skeleton> createState() => _SkeletonState();
@@ -43,6 +46,7 @@ class _SkeletonState extends State<Skeleton>
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
+        borderRadius: widget.borderRadius,
         gradient: LinearGradient(
           begin: Alignment(gradientPosition.value, 0),
           end: const Alignment(-1, 0),
