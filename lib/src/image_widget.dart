@@ -27,6 +27,7 @@ class ImageWidget extends StatefulWidget {
   final double aspectRatio;
   final bool useFadeInAnimation;
   final Widget? errorWidget;
+  final String? semanticsLabel;
 
   const ImageWidget(
     this.source, {
@@ -43,6 +44,7 @@ class ImageWidget extends StatefulWidget {
     this.aspectRatio = 2.0,
     this.useFadeInAnimation = true,
     this.errorWidget,
+    this.semanticsLabel,
   });
 
   const ImageWidget.avatar(
@@ -60,6 +62,7 @@ class ImageWidget extends StatefulWidget {
     this.aspectRatio = 2.0,
     this.useFadeInAnimation = true,
     this.errorWidget,
+    this.semanticsLabel,
   });
 
   Widget copyWith({Color? color, double? width, double? height}) {
@@ -115,6 +118,7 @@ class _ImageWidgetState extends State<ImageWidget>
                   : null,
               width: widget.width,
               height: widget.height,
+              semanticsLabel: widget.semanticsLabel,
             )
           : SvgPicture.asset(
               widget.source,
@@ -124,6 +128,7 @@ class _ImageWidgetState extends State<ImageWidget>
                   : null,
               width: widget.width,
               height: widget.height,
+              semanticsLabel: widget.semanticsLabel,
               package: widget.package ?? ImageWidget.packageDefault,
             );
     } else if (widget.source.contains('http')) {
@@ -135,6 +140,7 @@ class _ImageWidgetState extends State<ImageWidget>
         loadStateChanged: loadStateChanged,
         cacheWidth: widget.cacheWidth,
         cacheHeight: widget.cacheHeight,
+        semanticLabel: widget.semanticsLabel,
       );
     } else if (widget.source.startsWith('/') ||
         widget.source.startsWith('file://') ||
@@ -146,6 +152,7 @@ class _ImageWidgetState extends State<ImageWidget>
         width: widget.width,
         height: widget.height,
         loadStateChanged: loadStateChanged,
+        semanticLabel: widget.semanticsLabel,
       );
     } else if (widget.source.contains('.json')) {
       return Lottie.asset(
@@ -163,6 +170,7 @@ class _ImageWidgetState extends State<ImageWidget>
         width: widget.width,
         height: widget.height,
         package: widget.package ?? ImageWidget.packageDefault,
+        semanticLabel: widget.semanticsLabel,
       );
     }
     if (widget.borderRadius != null) {

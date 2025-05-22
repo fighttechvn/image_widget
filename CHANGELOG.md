@@ -1,3 +1,6 @@
+# 1.2.3
++ Add support `semanticsLabel` to fix exception flutter 3.32.0
+
 # 1.2.2
 * Add border radius for `Skeleton` widget
 
