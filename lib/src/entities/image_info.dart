@@ -4,7 +4,7 @@ class ImageInfoData {
   final String? caption;
   final String type;
 
-  ImageInfoData(
+  const ImageInfoData(
     this.url,
     this.id,
     this.caption,

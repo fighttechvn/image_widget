@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ImageListsWidget(
+          const ImageListsWidget(
             images: [
               ImageInfoData(
                 'https://photo.tuchong.com/5040418/f/43305517.jpg?v=2',
