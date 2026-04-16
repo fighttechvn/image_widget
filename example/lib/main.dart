@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
+        spacing: 12,
         children: <Widget>[
           const Text(
             'You have pushed the button this many times:',
@@ -83,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
             width: 100,
             height: 50,
           ),
+          const Text('Skeleton:'),
           Container(
             margin: const EdgeInsets.all(10),
             height: 44,
