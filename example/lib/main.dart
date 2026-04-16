@@ -36,15 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   final linkCtr = TextEditingController(text: _imgTest);
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   void initState() {
@@ -76,8 +68,17 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisSize: MainAxisSize.min,
         spacing: 12,
         children: <Widget>[
-          const Text(
-            'You have pushed the button this many times:',
+          const ImageListsWidget(
+            images: [
+              ImageInfoData(
+                'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81',
+                1,
+                '',
+                'image',
+              ),
+            ],
+            isShowTitle: true,
+            themeColor: Colors.black,
           ),
           const ImageWidget(
             'https://images.unsplash.com/photo-1661041524618-220a2a2b8b7.png',
@@ -104,14 +105,10 @@ class _MyHomePageState extends State<MyHomePage> {
               setState(() {});
             },
           ),
-          Text(
-            '$_counter',
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
           if (linkCtr.text.isNotEmpty)
             AnimatedBuilder(
-            animation: linkCtr,
-              builder: (context, child) =>  ImageWidget(
+              animation: linkCtr,
+              builder: (context, child) => ImageWidget(
                 key: ValueKey(linkCtr.text),
                 linkCtr.text,
                 width: 400,
@@ -215,12 +212,6 @@ class _MyHomePageState extends State<MyHomePage> {
         selectedItemColor: Colors.amber[800],
         onTap: _onItemTapped,
       ),
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -5,8 +5,10 @@ import 'package:flutter/material.dart';
 class Skeleton extends StatefulWidget {
   final BorderRadiusGeometry? borderRadius;
 
-  const Skeleton({super.key, this.borderRadius,});
-
+  const Skeleton({
+    super.key,
+    this.borderRadius,
+  });
 
   @override
   State<Skeleton> createState() => _SkeletonState();
