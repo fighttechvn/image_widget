@@ -2,9 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:imagewidget/imagewidget.dart';
 
-const _imgTest =
-    'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81';
-
 void main() {
   ImageWidget.errorWidgetBuilder = () => const ImageWidget(_imgTest);
 
@@ -26,6 +23,9 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
+const _imgTest =
+    'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -74,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
+        spacing: 12,
         children: <Widget>[
           const Text(
             'You have pushed the button this many times:',
@@ -82,15 +83,16 @@ class _MyHomePageState extends State<MyHomePage> {
             'https://images.unsplash.com/photo-1661041524618-220a2a2b8b7.png',
             width: 100,
             height: 50,
-          
           ),
+          const Text('Skeleton:'),
           Container(
             margin: const EdgeInsets.all(10),
-            height:  44 ,
+            height: 44,
             width: 220,
             child: Skeleton(
               borderRadius: BorderRadius.circular(10),
-            ),),
+            ),
+          ),
           CupertinoTextField(
             clearButtonMode: OverlayVisibilityMode.editing,
             controller: linkCtr,
