@@ -1,15 +1,26 @@
 include: package:flutter_lints/flutter.yaml
 
+formatter:
+  trailing_commas: preserve
+  # page_width: 120
+
 analyzer:
   language:
     strict-raw-types: false
+    strict-casts: false
+
   errors:
     todo: ignore
+    invalid_annotation_target: ignore
+    missing_required_param: error
+    unused_field: ignore
+
   exclude:
     - "**/*.g.dart"
     - "**/*.gr.dart"
     - "**/*.freezed.dart"
     - "**/*.config.dart"
+    - "**/*.module.dart"
 
 linter:
   rules:
@@ -33,10 +44,10 @@ linter:
     - await_only_futures
     - camel_case_types
     - avoid_void_async
-    # - cascade_invocations
+    - cascade_invocations
     - close_sinks
     - cancel_subscriptions
-    # - constant_identifier_names
+    - constant_identifier_names
     - curly_braces_in_flow_control_structures
     - directives_ordering
     - prefer_spread_collections
@@ -83,6 +94,7 @@ linter:
     - sort_unnamed_constructors_first
     - test_types_in_equals
     - type_annotate_public_apis
+    - avoid_private_typedef_functions
     - type_init_formals
     - unawaited_futures
     - unnecessary_await_in_return
@@ -102,7 +114,7 @@ linter:
     # nice to have
     - avoid_double_and_int_checks
     - avoid_bool_literals_in_conditional_expressions
-    # - avoid_function_literals_in_foreach_calls
+    - avoid_function_literals_in_foreach_calls
     - unnecessary_lambdas
     - flutter_style_todos
     - join_return_with_assignment

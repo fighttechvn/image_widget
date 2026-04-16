@@ -66,8 +66,8 @@ class _ImageZoomState extends State<ImageZoom> with TickerProviderStateMixin {
         double end;
 
         animation?.removeListener(animationListener);
-        animationController.stop();
-        animationController.reset();
+        animationController..stop()
+        ..reset();
 
         if (begin == 1) {
           end = 3.0;
