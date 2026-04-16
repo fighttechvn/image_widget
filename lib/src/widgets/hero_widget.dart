@@ -21,7 +21,7 @@ class HeroWidget extends StatefulWidget {
 
 class _HeroWidgetState extends State<HeroWidget> {
   RectTween? _rectTween;
-  
+
   @override
   Widget build(BuildContext context) {
     return Hero(
