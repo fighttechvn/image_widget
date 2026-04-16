@@ -11,11 +11,10 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Image Widget Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -24,11 +23,14 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const _imgTest =
+const String _imgTest =
     'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({
+    super.key,
+    required this.title,
+  });
   final String title;
 
   @override
@@ -63,59 +65,70 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
 
     final widgetOptions = <Widget>[
-      Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        spacing: 12,
-        children: <Widget>[
-          const ImageListsWidget(
-            images: [
-              ImageInfoData(
-                'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81',
-                1,
-                '',
-                'image',
-              ),
-            ],
-            isShowTitle: true,
-            themeColor: Colors.black,
-          ),
-          const ImageWidget(
-            'https://images.unsplash.com/photo-1661041524618-220a2a2b8b7.png',
-            width: 100,
-            height: 50,
-          ),
-          const Text('Skeleton:'),
-          Container(
-            margin: const EdgeInsets.all(10),
-            height: 44,
-            width: 220,
-            child: Skeleton(
-              borderRadius: BorderRadius.circular(10),
+      SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          spacing: 12,
+          children: <Widget>[
+            const ImageWidget(
+              'https://images.unsplash.com/photo-1661041524618-220a2a2b8b7.png',
+              height: 300,
             ),
-          ),
-          CupertinoTextField(
-            clearButtonMode: OverlayVisibilityMode.editing,
-            controller: linkCtr,
-            onChanged: (value) {
-              if (value.isEmpty || !value.contains('http')) {
-                return;
-              }
+            const Text('Image full screen:'),
+            const SizedBox(
+              height: 300,
+              child: ImageListsWidget(
+                images: [
+                  ImageInfoData(
+                    'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81',
+                    1,
+                    '',
+                    'image',
+                  ),
+                ],
+                isShowTitle: true,
+                themeColor: Colors.black,
+              ),
+            ),
+            const Text('Skeleton:'),
+            Container(
+              margin: const EdgeInsets.all(10),
+              height: 44,
+              width: 220,
+              child: Skeleton(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            CupertinoTextField(
+              clearButtonMode: OverlayVisibilityMode.editing,
+              controller: linkCtr,
+              onChanged: (value) {
+                if (value.isEmpty || !value.contains('http')) {
+                  return;
+                }
 
-              setState(() {});
-            },
-          ),
-          if (linkCtr.text.isNotEmpty)
-            AnimatedBuilder(
-              animation: linkCtr,
-              builder: (context, child) => ImageWidget(
-                key: ValueKey(linkCtr.text),
-                linkCtr.text,
-                width: 400,
-                height: 300,
-              ),
+                setState(() {});
+              },
             ),
-        ],
+            if (linkCtr.text.isNotEmpty)
+              AnimatedBuilder(
+                animation: linkCtr,
+                builder: (context, child) => ImageWidget(
+                  key: ValueKey(linkCtr.text),
+                  linkCtr.text,
+                  width: 400,
+                  height: 300,
+                ),
+              ),
+            const Text('ImageList Widget:'),
+            ImageListsWidget(
+              images: images
+                  .map((e) => ImageInfoData(e, null, 'cap', 'image'))
+                  .toList(),
+            ),
+          ],
+        ),
       ),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
