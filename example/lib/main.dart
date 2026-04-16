@@ -109,10 +109,14 @@ class _MyHomePageState extends State<MyHomePage> {
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           if (linkCtr.text.isNotEmpty)
-            ImageWidget(
-              '${linkCtr.text}v=${DateTime.now().microsecondsSinceEpoch}',
-              width: 400,
-              height: 300,
+            AnimatedBuilder(
+            animation: linkCtr,
+              builder: (context, child) =>  ImageWidget(
+                key: ValueKey(linkCtr.text),
+                linkCtr.text,
+                width: 400,
+                height: 300,
+              ),
             ),
         ],
       ),
