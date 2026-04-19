@@ -1,3 +1,6 @@
+# 1.2.5
++ Update github pipleine verify build
+
 # 1.2.3
 + Add support `semanticsLabel` to fix exception flutter 3.32.0
 
