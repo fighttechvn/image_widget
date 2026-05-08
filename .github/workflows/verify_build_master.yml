@@ -1,4 +1,4 @@
-name: Verify Compile
+name: Verify Compile Master
 
 on:
   push:
