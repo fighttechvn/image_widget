@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:imagewidget/imagewidget.dart';
 
+const String _imgTest =
+    'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81';
+
 void main() {
   ImageWidget.errorWidgetBuilder = () => const ImageWidget(_imgTest);
 
@@ -23,9 +26,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-const String _imgTest =
-    'https://images.unsplash.com/photo-1661041524618-220a2a2b8b74?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=81';
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({
     super.key,
@@ -39,13 +39,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final linkCtr = TextEditingController(text: _imgTest);
+  int _selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
   }
 
-  int _selectedIndex = 0;
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
